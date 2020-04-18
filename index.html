@@ -24,7 +24,8 @@
                     <select id="chonbai">
                         <option selected disabled>Chọn bài</option>
                     </select>
-                    <button class="btn btn-info" onclick="layTin()">Lấy tin</button>
+                    <button class="btn btn-info" onclick="layTin();dl()">Lấy tin</button>
+                    <button class="btn btn-info"><a style="color: white" href="dl.php" id="dl">Nhấn vô đây sau khi get để tải file xuống</a></button>
                 </div>
             </div>
             <div class="col-lg-8 col" id="display">
@@ -56,8 +57,8 @@
         }
         function soBaiViet() { // sau khi chon chuyen muc
             bao = $('#nguonbao').val();
-            data = $('#chuyenmuc').val();
-            if (data == '') {
+            chmuc = $('#chuyenmuc').val();
+            if (chmuc == '') {
                 return;
             } else {
                 if (window.XMLHttpRequest) {
@@ -68,16 +69,16 @@
                         $('#chonbai').html(this.responseText);
                     }
                 }
-                xmlHttp.open('GET', 'chonbai.php?chmuc='+data+'&bao='+bao,true);
+                xmlHttp.open('GET', 'chonbai.php?chmuc='+chmuc+'&bao='+bao,true);
                 xmlHttp.send();
             }
         }
         function layTin() { // nhan de lay tin
             bao = $('#nguonbao').val();
-            data = $('#chuyenmuc').val();
+            chmuc = $('#chuyenmuc').val();
             sobai = $('#chonbai').val();
             tenchmucdu = $('#chuyenmuc option:selected').html();
-            if (data == '') {
+            if (chmuc == '') {
                 return;
             } else {
                 if (window.XMLHttpRequest) {
@@ -88,9 +89,13 @@
                         $('#display').html(this.responseText);
                     }
                 }
-                xmlHttp.open('GET', 'get.php?chmuc='+data+'&bao='+bao+'&bai='+sobai+'&tchmuc='+tenchmucdu,true);
+                xmlHttp.open('GET', 'get.php?chmuc='+chmuc+'&bao='+bao+'&bai='+sobai+'&tchmuc='+tenchmucdu,true);
                 xmlHttp.send();
             }
+        }
+        function dl(){
+            sobai = $('#chonbai').val();
+            $('#dl').attr('href', 'dl.php?bao='+bao+'&chmuc='+chmuc+'&bai='+sobai);
         }
     </script>
 </body>
