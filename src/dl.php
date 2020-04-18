@@ -11,5 +11,5 @@
     header('Content-Length: ' . filesize($file));
     header("Content-Type: text/html");
     readfile($file);
-    unlink("baiTuBao-$bao-chmuc-$chmuc-bai-$sobai.html");
+    unlink($_SERVER['DOCUMENT_ROOT'] . "/php/laytin/luutru/baiTuBao-$bao-chmuc-$chmuc-bai-$sobai.html");
 ?>

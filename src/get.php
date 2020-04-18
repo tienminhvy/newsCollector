@@ -34,10 +34,21 @@
         <h3 style='padding: 10px; font-family: Arial, sans-serif'>$title</h3>
         <p style='padding: 0 10px; font-family: Arial, sans-serif'>$desc</p>
         <p style='text-align: right; padding: 0 10px; font-family: Arial, sans-serif'>$ten - $tenChuyenMuc</p>";
+        $html_content = 
+"
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<style>* {margin: 0; padding: 0}</style>
+</head>
+<body>$dl</body>
+</html>
+";
     } else if ($bao == 'vtv') { // neu chon bao vtv
 
     }
     $fileE = fopen($_SERVER['DOCUMENT_ROOT'] . "/php/laytin/luutru/baiTuBao-$bao-chmuc-$chmuc-bai-$sobai.html","w") or die("Unable to open file!");;
-    fwrite($fileE, $dl);
+    fwrite($fileE, $html_content);
     fclose($fileE);
 ?>
