@@ -1,5 +1,8 @@
 # newsCollector ![Build Status](https://api.travis-ci.com/tienminhvy/newsCollector.svg?branch=master&status=passed)
-A program which collect the post from electronic media
+A program which collect the post from electronic media / Phần mềm thu thập bài viết từ website báo điện tử
+
+Hiện đã hỗ trợ
+* [Báo Nhân Dân Điện Tử](https://nhandan.com.vn)
 
 ## Requirements / Yêu cầu
 
